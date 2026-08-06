@@ -1,22 +1,48 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
-.vscode/
-#Cache folder
-.alcache/
-#Symbols folder
-.alpackages/
-#Snapshots folder
-.snapshots/
-#Testing Output folder
-.output/
-#Extension App-file
-*.app
-#Rapid Application Development File
-rad.json
-#Translation Base-file
-*.g.xlf
-#License-file
-*.flf
-#Test results file
-TestResults.xml
+# ==========================================
+# Maven / Build Output
+# ==========================================
+target/
+*.class
+*.jar
+*.war
+*.ear
+*.rar
+
+# ==========================================
+# Allure Reports & Results
+# ==========================================
+allure-results/
+allure-report/
+.allure/
+
+# ==========================================
+# IntelliJ IDEA / Eclipse
+# ==========================================
+.idea/
+*.iml
+*.ipr
+*.iws
+.out/
+.classpath
+.project
+.settings/
+
+# ==========================================
+# Logs & Temporary Files
+# ==========================================
+*.log
+*.dump
+*.dumpstream
+hs_err_pid*
+replay_pid*
+
+# ==========================================
+# OS Generated Files
+# ==========================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
