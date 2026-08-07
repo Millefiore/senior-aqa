@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  allure:
+    image: frankescobar/allure-docker-service:latest
+    ports:
+      - "5050:5050"
+    environment:
+      CHECK_RESULTS_EVERY_SECONDS: 1
+      KEEP_HISTORY: 1
+    volumes:
+      - C:/Users/Vio/IdeaProjects/senior-aqa/target/allure-results:/app/allure-results
+      - C:/Users/Vio/IdeaProjects/senior-aqa/allure-reports:/app/default-reports
+
+  allure-ui:
+    image: frankescobar/allure-docker-service-ui:latest
+    ports:
+      - "5252:5252"
+    environment:
+      ALLURE_DOCKER_PUBLIC_API_URL: "http://localhost:5050"
+    depends_on:
+      - allure

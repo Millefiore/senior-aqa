@@ -42,8 +42,20 @@ jobs:
           fi
 
       - name: Run RestAssured Tests
+        env:
+          TESTOMATIO: ${{ secrets.TESTOMATIO }}
+          TESTOMATIO_CREATE: 1
+          TESTOMATIO_TITLE: "GitHub Actions CI Run #${{ github.run_number }}"
         run: mvn clean test -Denv=${{ env.ENV_NAME }}
         continue-on-error: true
+
+      - name: Generate Allure Environment Properties
+        if: always()
+        run: mkdir -p target/allure-results
+          echo "Environment=${{ env.ENV_NAME }}" >> target/allure-results/environment.properties
+          echo "Java.Version=17" >> target/allure-results/environment.properties
+          echo "Branch=${{ github.ref_name }}" >> target/allure-results/environment.properties
+          echo "Runner.OS=${{ runner.os }}" >> target/allure-results/environment.properties
 
       - name: Get Allure History
         uses: actions/checkout@v4

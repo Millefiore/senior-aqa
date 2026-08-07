@@ -28,7 +28,6 @@
         <lombok.version>1.18.32</lombok.version>
     </properties>
 
-    <!-- 1. ФИКСИРУЕМ ВЕРСИИ ЮНИТА ДЛЯ ВСЕХ ТРАНЗИТИВНЫХ БИБЛИОТЕК (ALLURE, SUREFIRE И Т.Д.) -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -128,6 +127,19 @@
             <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>io.testomat</groupId>
+            <artifactId>java-reporter-junit</artifactId>
+            <version>0.16.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.testomat</groupId>
+            <artifactId>testomat-allure-adapter</artifactId>
+            <version>0.16.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -157,6 +169,9 @@
                 <configuration>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                 </configuration>
             </plugin>
 
