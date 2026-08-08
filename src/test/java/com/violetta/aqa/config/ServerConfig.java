@@ -7,7 +7,7 @@ public interface ServerConfig extends Config {
 
     @Key("user.service.url")
     @DefaultValue("https://reqres.in")
-    String userServiceUrl();
+    String serviceUrl();
 
     @Key("timeout")
     @DefaultValue("5000")

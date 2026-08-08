@@ -1,12 +1,11 @@
 package com.violetta.aqa.test.user;
 
-import com.violetta.aqa.client.UserApiClient;
+import com.violetta.aqa.client.user.UserApiClient;
 import com.violetta.aqa.dto.user.request.UserDto;
 import com.violetta.aqa.dto.user.response.UserPageDto;
 import com.violetta.aqa.dto.user.response.UserSingleDto;
 import com.violetta.aqa.test.user.dataprovider.ValidUserProvider;
 import io.qameta.allure.*;
-import io.testomat.core.annotation.TestId;
 import io.testomat.core.annotation.Title;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.DisplayName;
@@ -24,9 +23,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UserApiTest {
 
     UserApiClient userApiClient = new UserApiClient();
-    @Title("Get Users Pageable")
+
     @ParameterizedTest
     @ValueSource(ints = {1, 2})
+    @Title("Get Users Pageable")
     @Story("Get users")
     @DisplayName("Get users validPageable return 200 and user list")
     public void getUsers_validPageable_return200AndUserList(int page) {
@@ -45,9 +45,9 @@ public class UserApiTest {
         });
     }
 
-    @Title("Get user by id")
     @ParameterizedTest
     @ValueSource(ints = {1, 2, 3, 4})
+    @Title("Get user by id")
     @Story("Get user by id")
     @DisplayName("Get user by id and returns 200 and valid user")
     public void getUserById_validRequest_return200AndValidUser(int id) {
@@ -65,9 +65,9 @@ public class UserApiTest {
         });
     }
 
-    @Title("Create user")
     @ParameterizedTest
     @ArgumentsSource(ValidUserProvider.class)
+    @Title("Create user")
     @Story("Create user")
     @DisplayName("Create user by valid body and returns 200 and valid user")
     public void createUser_validRequest_return201AndValidUser(UserDto userEntity) {

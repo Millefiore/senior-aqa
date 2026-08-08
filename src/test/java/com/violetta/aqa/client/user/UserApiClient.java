@@ -1,5 +1,6 @@
-package com.violetta.aqa.client;
+package com.violetta.aqa.client.user;
 
+import com.violetta.aqa.client.BaseApiClient;
 import com.violetta.aqa.client.util.ApiConstants;
 import com.violetta.aqa.config.EnvironmentConfig;
 import com.violetta.aqa.dto.user.request.UserDto;
@@ -24,7 +25,7 @@ public class UserApiClient extends BaseApiClient {
     @Step("Create user: user = {userDto}")
     public UserDto createUser(UserDto userDto) {
         return given()
-                .spec(requestSpec(EnvironmentConfig.CONFIG.userServiceUrl(), EnvironmentConfig.CONFIG.apiKey()))
+                .spec(requestSpec(EnvironmentConfig.CONFIG.serviceUrl(), EnvironmentConfig.CONFIG.apiKey()))
                 .body(userDto)
                 .when()
                 .post(ApiConstants.USER_API.getUrl())
@@ -37,7 +38,7 @@ public class UserApiClient extends BaseApiClient {
     @Step("Get user by id: user id = {id}")
     public UserSingleDto getUser(int id) {
         return given()
-                .spec(requestSpec(EnvironmentConfig.CONFIG.userServiceUrl(), EnvironmentConfig.CONFIG.apiKey()))
+                .spec(requestSpec(EnvironmentConfig.CONFIG.serviceUrl(), EnvironmentConfig.CONFIG.apiKey()))
                 .pathParam("id", id)
                 .when()
                 .get(ApiConstants.USER_API.getUrl() + "/{id}")
@@ -49,7 +50,7 @@ public class UserApiClient extends BaseApiClient {
 
     public ValidatableResponse getUsersPage(int page, int code) {
         return given()
-                .spec(requestSpec(EnvironmentConfig.CONFIG.userServiceUrl(), EnvironmentConfig.CONFIG.apiKey()))
+                .spec(requestSpec(EnvironmentConfig.CONFIG.serviceUrl(), EnvironmentConfig.CONFIG.apiKey()))
                 .queryParam("page", page)
                 .when()
                 .get(ApiConstants.USER_API.getUrl())

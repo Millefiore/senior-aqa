@@ -1,7 +1,8 @@
 package com.violetta.aqa.client.util;
 
 public enum ApiConstants {
-    USER_API("/api/users");
+    USER_API("/api/users"),
+    LOGIN_API("/api/login");
 
     private final String url;
 

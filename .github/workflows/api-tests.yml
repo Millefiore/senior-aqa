@@ -51,7 +51,8 @@ jobs:
 
       - name: Generate Allure Environment Properties
         if: always()
-        run: mkdir -p target/allure-results
+        run: |
+          mkdir -p target/allure-results
           echo "Environment=${{ env.ENV_NAME }}" >> target/allure-results/environment.properties
           echo "Java.Version=17" >> target/allure-results/environment.properties
           echo "Branch=${{ github.ref_name }}" >> target/allure-results/environment.properties
@@ -66,7 +67,7 @@ jobs:
           path: gh-pages
 
       - name: Generate Allure Report
-        uses: simple-elf/allure-report-action@v1.7
+        uses: simple-elf/allure-report-action@v2.1
         if: always()
         with:
           allure_results: target/allure-results
