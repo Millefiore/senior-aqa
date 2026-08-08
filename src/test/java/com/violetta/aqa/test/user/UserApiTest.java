@@ -9,12 +9,15 @@ import io.qameta.allure.*;
 import io.testomat.core.annotation.Title;
 import lombok.experimental.FieldDefaults;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Tags({@Tag("api"), @Tag("user")})
 @Issue("KAN-1")
 @Epic("User Management API")
 @Feature("User CRUD Operations")

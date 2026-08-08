@@ -7,12 +7,9 @@ package com.violetta.aqa.test.user.dataprovider;
 //      "avatar": "https://reqres.in/img/faces/7-image.jpg"
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.violetta.aqa.dto.BaseDto;
 import com.violetta.aqa.dto.user.request.UserDto;
 import lombok.AccessLevel;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;

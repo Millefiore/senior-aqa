@@ -11,10 +11,8 @@ public class BaseApiTest {
 
     @BeforeAll
     public static void globalSetup() {
-        // 1. Автоматически печатать запрос и ответ в консоль, если ассерт в тесте УПАЛ
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
 
-        // 2. Настройка таймаутов соединения для всех сервисов по умолчанию
         RestAssured.config = RestAssured.config()
                 .httpClient(RestAssured.config().getHttpClientConfig().reuseHttpClientInstance());
     }
