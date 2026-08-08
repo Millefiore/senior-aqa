@@ -1,0 +1,1 @@
+{"total":2,"items":[{"uid":"080a93e117a624fab8351eadcaba2455","name":"com.violetta.aqa.test.user.UserApiTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":9,"unknown":0,"total":9}},{"uid":"f948422b18e4dcc3845ab4d3b5d21f98","name":"com.violetta.aqa.test.auth.AuthApiTest","statistic":{"failed":0,"broken":0,"skipped":0,"passed":7,"unknown":0,"total":7}}]}
