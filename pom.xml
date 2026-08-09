@@ -13,17 +13,24 @@
         <java-release.version>17</java-release.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <junit.version>5.10.2</junit.version>
-        <junit-platform.version>1.10.2</junit-platform.version>
-        <allure.version>2.27.0</allure.version>
-        <rest-assured.version>5.4.0</rest-assured.version>
-        <jackson-databind.version>2.17.0</jackson-databind.version>
-        <data-faker.version>2.2.0</data-faker.version>
         <aspectj.version>1.9.22</aspectj.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+
+        <junit.version>5.10.2</junit.version>
+        <junit-platform.version>1.10.2</junit-platform.version>
+
+        <rest-assured.version>5.4.0</rest-assured.version>
+        <playwright.version>1.44.0</playwright.version>
+
+        <jackson-databind.version>2.17.0</jackson-databind.version>
+        <data-faker.version>2.2.0</data-faker.version>
         <owner.version>1.0.12</owner.version>
+
+        <allure.version>2.27.0</allure.version>
+
         <assertj.version>3.25.3</assertj.version>
+        <awaitility.version>4.3.0</awaitility.version>
         <slf4j.version>2.0.12</slf4j.version>
         <lombok.version>1.18.32</lombok.version>
     </properties>
@@ -67,8 +74,6 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
-
-        <!-- 2. ЯВНО ДОБАВЛЯЕМ LAUNCHER (НУЖЕН ДЛЯ SUREFIRE 3.X) -->
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
@@ -128,18 +133,22 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Playwright -->
         <dependency>
-            <groupId>io.testomat</groupId>
-            <artifactId>java-reporter-junit</artifactId>
-            <version>0.16.0</version>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>${playwright.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Awaitility -->
         <dependency>
-            <groupId>io.testomat</groupId>
-            <artifactId>testomat-allure-adapter</artifactId>
-            <version>0.16.0</version>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>${awaitility.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>

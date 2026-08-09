@@ -42,10 +42,6 @@ jobs:
           fi
 
       - name: Run RestAssured Tests
-        env:
-          TESTOMATIO: ${{ secrets.TESTOMATIO }}
-          TESTOMATIO_CREATE: 1
-          TESTOMATIO_TITLE: "GitHub Actions CI Run #${{ github.run_number }}"
         run: mvn clean test -Denv=${{ env.ENV_NAME }}
         continue-on-error: true
 

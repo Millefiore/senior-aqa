@@ -9,6 +9,10 @@ public interface ServerConfig extends Config {
     @DefaultValue("https://reqres.in")
     String serviceUrl();
 
+    @Key("ui.service.url")
+    @DefaultValue("https://www.saucedemo.com")
+    String baseUiUrl();
+
     @Key("timeout")
     @DefaultValue("5000")
     int timeout();
