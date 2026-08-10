@@ -1,0 +1,41 @@
+name: Manual Single Test Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      test_name:
+        description: 'Name of test to run (Wx: CartUiTest OR CartUiTest#shouldApplyValidPromocode)'
+        required: false
+        default: ''
+      test_tag:
+        description: 'Tag (Ex: promocode, regression, smoke)'
+        required: false
+        default: ''
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Run Specified Test via Maven
+        run: |
+          COMMAND="mvn clean test"
+          
+          if [ -n "${{ github.event.inputs.test_name }}" ]; then
+            COMMAND="$COMMAND -Dtest=${{ github.event.inputs.test_name }}"
+          fi
+          
+          if [ -n "${{ github.event.inputs.test_tag }}" ]; then
+            COMMAND="$COMMAND -Dgroups=${{ github.event.inputs.test_tag }}"
+          fi
+          
+          echo "Executing: $COMMAND"
+          eval $COMMAND
