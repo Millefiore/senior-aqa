@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Specified Test via Maven
         run: |
-          COMMAND="mvn clean test"
+          COMMAND="xvfb-run mvn clean test"
           
           if [ -n "${{ github.event.inputs.test_name }}" ]; then
             COMMAND="$COMMAND -Dtest=${{ github.event.inputs.test_name }}"
