@@ -28,7 +28,11 @@ public class BaseUiTest {
     public static void launchBrowser() {
         playwright = Playwright.create();
         playwright.selectors().setTestIdAttribute("data-test");
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false));
+        boolean isHeadless = Boolean.parseBoolean(System.getProperty("headless", "true"));
+
+        browser = playwright.chromium().launch(
+                new BrowserType.LaunchOptions().setHeadless(isHeadless)
+        );
     }
 
     @AfterAll
@@ -41,8 +45,6 @@ public class BaseUiTest {
         playwright = Playwright.create();
 
         playwright.selectors().setTestIdAttribute("data-test");
-
-        browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(true));
 
         context = browser.newContext(new Browser.NewContextOptions()
                 .setRecordVideoDir(Paths.get("target/videos/")));
