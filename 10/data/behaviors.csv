@@ -1,0 +1,8 @@
+"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
+"0","Auth API","0","Auth Operations","3","0","Login Invalid : Email and Password","0"
+"0","User Management API","0","User CRUD Operations","4","0","Get user by id","0"
+"0","Auth API","0","Auth Operations","3","0","Login Invalid : Email and Password Null","0"
+"0","User Management API","0","User CRUD Operations","3","0","Create user","0"
+"0","User Management API","0","User CRUD Operations","2","0","Get users","0"
+"0","Order API","0","Order Max Price and Min Price products","1","0","Order Max Price and Min Price products","0"
+"0","Auth API","0","Auth Operations","1","0","Login Valid Creds","0"
