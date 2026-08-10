@@ -42,7 +42,7 @@ jobs:
           fi
 
       - name: Run RestAssured Tests
-        run: mvn clean test -Denv=${{ env.ENV_NAME }}
+        run: xvfb-run mvn clean test -Denv=${{ env.ENV_NAME }}
         continue-on-error: true
 
       - name: Generate Allure Environment Properties
